@@ -6,7 +6,7 @@ interface ChipProps {
 
 const Chip: React.FC<ChipProps> = ({ img, label, onRemove }) => {
   return (
-    <div className="flex items-center gap-2 bg-cyan-600 text-white rounded-full py-1 px-2">
+    <div className="flex items-center gap-2 bg-primary text-white rounded-full py-1 px-2">
       <img src={img} alt=""
         className="w-6 h-6 rounded-full"
       />

@@ -115,7 +115,7 @@ const PickUser: React.FC<AutocompleteChipInputProps> = ({ items }) => {
       {showList &&
         <ul
           ref={suggestionListRef}
-          className="list-none my-2 max-h-64 overflow-auto bg-slate-500 rounded-lg"
+          className="list-none my-2 max-h-64 overflow-auto rounded-lg"
         >
           {filteredItems.length === 0 ? (
             <li className="text-white p-3">No more users!</li>
@@ -126,9 +126,9 @@ const PickUser: React.FC<AutocompleteChipInputProps> = ({ items }) => {
                 onClick={() => handleItemClick(item)}
                 onMouseEnter={() => handleItemMouseEnter(index)}
                 className={`cursor-pointer  ${index === highlightedIndex
-                  ? 'bg-cyan-600'
+                  ? 'bg-primary'
                   : 'bg-gray-50'
-                  } p-0 md:p-3 flex items-center gap-4 trasnsition-all duration-300`}
+                  } p-0 md:p-3 rounded flex items-center gap-4 trasnsition-all duration-300 my-1`}
               >
                 <img
                   src={item.profilePic}
