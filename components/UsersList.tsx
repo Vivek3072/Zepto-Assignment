@@ -123,7 +123,7 @@ const UsersList: React.FC<ChipInputProps> = ({ items }) => {
           className="list-none my-2 max-h-64 overflow-auto rounded-lg"
         >
           {filteredItems.length === 0 ? (
-            <li className="text-white p-3">No more users!</li>
+            <li className="text-gray-600 p-3">No more users!</li>
           ) : (
             filteredItems.map((item, index) => (
               <li
