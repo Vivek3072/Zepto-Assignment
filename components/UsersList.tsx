@@ -3,14 +3,18 @@ import React, { useState, ChangeEvent, KeyboardEvent, useEffect, useRef } from '
 import Chip from './Chip';
 import { Item } from '../data/UsersData';
 
-interface AutocompleteChipInputProps {
+interface ChipInputProps {
   items: Item[];
 }
 
-const PickUser: React.FC<AutocompleteChipInputProps> = ({ items }) => {
+const UsersList: React.FC<ChipInputProps> = ({ items }) => {
+  //keeping track of users  who are selected in chip
   const [selectedItems, setSelectedItems] = useState<Item[]>([]);
+  // search filter as per input value
   const [filter, setFilter] = useState('');
   const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
+
+  //Handling when to show users list
   const [showList, setShowList] = useState(false)
   const inputRef = useRef(null);
 
@@ -25,6 +29,7 @@ const PickUser: React.FC<AutocompleteChipInputProps> = ({ items }) => {
 
   const suggestionListRef = useRef<HTMLUListElement | null>(null);
 
+  // handlig filtered items
   const filteredItems = filter
     ? items.filter(
       (item) =>
@@ -49,6 +54,7 @@ const PickUser: React.FC<AutocompleteChipInputProps> = ({ items }) => {
     setHighlightedIndex(null);
   };
 
+  // Handling all the functions of keyboard 's key functionalities
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Backspace' && filter === '') {
       if (selectedItems.length > 0) {
@@ -73,7 +79,6 @@ const PickUser: React.FC<AutocompleteChipInputProps> = ({ items }) => {
       selectItem(filteredItems[highlightedIndex]);
     }
   };
-
 
   const handleItemClick = (item: Item) => {
     selectItem(item);
@@ -147,4 +152,4 @@ const PickUser: React.FC<AutocompleteChipInputProps> = ({ items }) => {
   );
 };
 
-export default PickUser;
+export default UsersList;
